@@ -19,6 +19,7 @@ namespace PawRadar.Models
         /// <value>
         /// The identifier.
         /// </value>
+        [DataMember(Name = "id")]
         public int Id { get; set; }
 
         /// <summary>
@@ -27,6 +28,7 @@ namespace PawRadar.Models
         /// <value>
         /// The name.
         /// </value>
+        [DataMember(Name = "name")]
         public String Name { get; set; }
 
         /// <summary>
@@ -35,6 +37,7 @@ namespace PawRadar.Models
         /// <value>
         /// The species.
         /// </value>
+        [DataMember(Name = "species")]
         public String Species { get; set; }
 
         /// <summary>
@@ -43,6 +46,7 @@ namespace PawRadar.Models
         /// <value>
         /// The age.
         /// </value>
+        [DataMember(Name = "age")]
         public int Age { get; set; }
 
         /// <summary>
@@ -51,6 +55,7 @@ namespace PawRadar.Models
         /// <value>
         /// The location.
         /// </value>
+        [DataMember(Name = "location")]
         public String Location { get; set; }
 
         /// <summary>
