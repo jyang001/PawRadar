@@ -13,6 +13,13 @@ namespace PawRadar.Models
     [DataContract]
     public class Pet
     {
+        /// <summary>
+        /// Gets or sets the id.
+        /// </summary>
+        /// <value>
+        /// The identifier.
+        /// </value>
+        public int Id { get; set; }
 
         /// <summary>
         /// Gets or sets the name.
@@ -53,8 +60,9 @@ namespace PawRadar.Models
         /// <param name="species">The species.</param>
         /// <param name="age">The age.</param>
         /// <param name="location">The location.</param>
-        public Pet(string name, string species, int age, string location)
+        public Pet(int id, string name, string species, int age, string location)
         {
+            Id = id;
             Name = name;
             Species = species;
             Age = age;
