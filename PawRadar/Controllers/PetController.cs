@@ -1,38 +1,41 @@
-﻿using System;
+﻿using Dapper;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using PawRadar.Models;
+
 
 namespace PawRadar.Controllers
 {
     public class PetController : ApiController
     {
-        public static List<Pet> pets = new List<Pet>();
-        
-        PetController()
+        private static IDbConnection db;
+
+        public PetController()
         {
-            pets.Add(new Pet(1, "Globber", "Maltese", 10, "Upper West Side"));
-            pets.Add(new Pet(2, "Nana", "Poodle", 9, "Upper West Side"));
+            db = new SqlConnection(ConfigurationManager.ConnectionStrings["conn"].ConnectionString);
         }
 
         // GET: api/Pet
         public IEnumerable<Pet> Get()
         {
+            string query = "select * from PetsDB.dbo.Pets";
+            List<Pet> pets = new List<Pet>();
+
+            using (db)
+            {
+                pets = db.Query<Pet>(query).ToList();
+            }
             return pets;
         }
 
         // GET: api/Pet/5
         public Pet Get(int id)
         {
-            foreach(Pet pet in pets) {
-                if (pet.Id == id)
-                {
-                    return pet;
-                }
-            }
+
             return null;
         }
 
