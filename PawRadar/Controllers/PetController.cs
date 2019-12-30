@@ -6,30 +6,25 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web.Http;
 using PawRadar.Models;
-
+using PawRadar.Infrastructure;
 
 namespace PawRadar.Controllers
 {
     public class PetController : ApiController
     {
-        private static IDbConnection db;
 
-        public PetController()
+        private readonly IPet _ipet;
+
+        public PetController(IPet ipet)
         {
-            db = new SqlConnection(ConfigurationManager.ConnectionStrings["conn"].ConnectionString);
+            _ipet = ipet;
         }
 
         // GET: api/Pet
         public IEnumerable<Pet> Get()
         {
-            string query = "select * from PetsDB.dbo.Pets";
-            List<Pet> pets = new List<Pet>();
-
-            using (db)
-            {
-                pets = db.Query<Pet>(query).ToList();
-            }
-            return pets;
+            var pets = _ipet.GetAll();
+            return pets; 
         }
 
         // GET: api/Pet/5
