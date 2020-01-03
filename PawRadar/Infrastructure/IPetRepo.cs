@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PawRadar.Infrastructure
 {
-    public interface IPet
+    public interface IPetRepo
     {
         List<Pet> GetAll();
         Pet GetById(int id);

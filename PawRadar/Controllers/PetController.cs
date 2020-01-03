@@ -13,9 +13,9 @@ namespace PawRadar.Controllers
     public class PetController : ApiController
     {
 
-        private readonly IPet _ipet;
+        private readonly IPetRepo _ipet;
 
-        public PetController(IPet ipet)
+        public PetController(IPetRepo ipet)
         {
             _ipet = ipet;
         }

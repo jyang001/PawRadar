@@ -10,7 +10,7 @@ using System.Linq;
 
 namespace PawRadar.Service
 {
-    public class PetRepo : IPet
+    public class PetRepo : IPetRepo
     {
         private static IDbConnection db;
 
