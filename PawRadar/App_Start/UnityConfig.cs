@@ -1,6 +1,6 @@
-using System.Web.Http;
+using System.Web.Mvc;
 using Unity;
-using Unity.WebApi;
+using Unity.Mvc5;
 
 namespace PawRadar
 {
@@ -15,7 +15,7 @@ namespace PawRadar
             
             // e.g. container.RegisterType<ITestService, TestService>();
             
-            GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
+            DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }
 }
