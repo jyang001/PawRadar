@@ -14,7 +14,7 @@ namespace PawRadar.Service
     {
         private static IDbConnection db;
 
-        PetRepo()
+        public PetRepo()
         {
             db = new SqlConnection(ConfigurationManager.ConnectionStrings["conn"].ConnectionString);
         }
